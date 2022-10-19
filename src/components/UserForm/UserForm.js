@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import ErrorModal from '../UI/ErrorModal';
+import Wrapper from '../Helpers/Wrapper';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import classes from './UserForm.module.css';
@@ -40,22 +41,17 @@ const UserForm = (props) => {
   }
 
   return (
-    <div>
+    <Wrapper>
       {error && <ErrorModal error={error} onCloseModal={closeModalHandler} />}
       <Card>
         <form className={classes['form-control']} onSubmit={submitHandler}>
-          <div>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" value={enteredUsername} onChange={usernameChangeHandler} />
-          </div>
-          <div>
-            <label htmlFor="age">Age (Years)</label>
-            <input type="number" id="age" value={enteredAge} onChange={ageChangeHandler} />
-          </div>
-          <Button type="submit">Add User</Button>
+          <label htmlFor="username">Username</label>
+          <input type="text" id="username" value={enteredUsername} onChange={usernameChangeHandler} />
+          <label htmlFor="age">Age (Years)</label>
+          <input type="number" id="age" value={enteredAge} onChange={ageChangeHandler} />          <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </Wrapper>
   )
 };
 

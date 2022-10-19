@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import UserForm from './components/UserForm/UserForm';
 import UserList from './components/UserList/UserList';
+import Wrapper from './components/Helpers/Wrapper';
 
 import './App.css';
 
@@ -23,11 +24,10 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-
+    <Wrapper>
       <UserForm onAddUser={addUserHandler}/>
       <UserList users={users}/>
-    </div>
+    </Wrapper>
   );
 }
 
