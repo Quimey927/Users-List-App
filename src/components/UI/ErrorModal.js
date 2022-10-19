@@ -17,7 +17,7 @@ const ModalOverlay = (props) => {
         <header className={classes.header}>
           <h2>Invalid Input</h2>
         </header>
-        <div class={classes.content}>
+        <div className={classes.content}>
           <p>{props.error || 'Error!!'}</p>
         </div>
         <footer className={classes.footer}>

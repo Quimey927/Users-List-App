@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment, useRef } from 'react';
 
 import ErrorModal from '../UI/ErrorModal';
 import Card from '../UI/Card';
@@ -6,20 +6,16 @@ import Button from '../UI/Button';
 import classes from './UserForm.module.css';
 
 const UserForm = (props) => {
-  const [enteredUsername, setEnteredUsername] = useState('');
-  const [enteredAge, setEnteredAge] = useState('');
+  const usernameInputRef = useRef();
+  const ageInputRef = useRef();
+
   const [error, setError] = useState('');
-  
-  const usernameChangeHandler = (evt) => {
-    setEnteredUsername(evt.target.value);
-  };
-  
-  const ageChangeHandler = (evt) => {
-    setEnteredAge(evt.target.value);
-  };
 
   const submitHandler = (evt) => {
     evt.preventDefault();
+    const enteredUsername = usernameInputRef.current.value;
+    const enteredAge = ageInputRef.current.value;
+
     if (!enteredUsername.trim().length || !enteredAge.trim().length) {
       setError('You have to give a username and an age');
       return;
@@ -31,8 +27,8 @@ const UserForm = (props) => {
     }
 
     props.onAddUser(enteredUsername, enteredAge);
-    setEnteredUsername('');
-    setEnteredAge('');
+    usernameInputRef.current.value = '';
+    ageInputRef.current.value = '';
   };
 
   const closeModalHandler = () => {
@@ -45,9 +41,18 @@ const UserForm = (props) => {
       <Card>
         <form className={classes['form-control']} onSubmit={submitHandler}>
           <label htmlFor="username">Username</label>
-          <input type="text" id="username" value={enteredUsername} onChange={usernameChangeHandler} />
+          <input
+            type="text"
+            id="username"
+            ref={usernameInputRef}  
+          />
           <label htmlFor="age">Age (Years)</label>
-          <input type="number" id="age" value={enteredAge} onChange={ageChangeHandler} />          <Button type="submit">Add User</Button>
+          <input
+            type="number"
+            id="age"
+            ref={ageInputRef}
+          />
+          <Button type="submit">Add User</Button>
         </form>
       </Card>
     </Fragment>
