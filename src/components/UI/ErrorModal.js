@@ -1,5 +1,6 @@
+import { Fragment } from 'react';
+
 import classes from './ErrorModal.module.css';
-import Wrapper from '../Helpers/Wrapper';
 import Button from './Button';
 import Card from './Card';
 
@@ -9,7 +10,7 @@ const ErrorModal = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       <div className={classes.backdrop} onClick={clickHandler} />
       <Card className={classes.modal}>
         <header className={classes.header}>
@@ -22,7 +23,7 @@ const ErrorModal = (props) => {
           <Button className={classes.btn} type="button" onClick={clickHandler}>Okay</Button>
         </footer>
       </Card>
-    </Wrapper>
+    </Fragment>
   )
 };
 

@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 import UserForm from './components/UserForm/UserForm';
 import UserList from './components/UserList/UserList';
-import Wrapper from './components/Helpers/Wrapper';
 
 import './App.css';
 
@@ -24,10 +23,10 @@ const App = () => {
   };
 
   return (
-    <Wrapper>
+    <Fragment>
       <UserForm onAddUser={addUserHandler}/>
       <UserList users={users}/>
-    </Wrapper>
+    </Fragment>
   );
 }
 

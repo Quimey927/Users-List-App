@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 
 import ErrorModal from '../UI/ErrorModal';
-import Wrapper from '../Helpers/Wrapper';
 import Card from '../UI/Card';
 import Button from '../UI/Button';
 import classes from './UserForm.module.css';
@@ -41,7 +40,7 @@ const UserForm = (props) => {
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       {error && <ErrorModal error={error} onCloseModal={closeModalHandler} />}
       <Card>
         <form className={classes['form-control']} onSubmit={submitHandler}>
@@ -51,7 +50,7 @@ const UserForm = (props) => {
           <input type="number" id="age" value={enteredAge} onChange={ageChangeHandler} />          <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </Wrapper>
+    </Fragment>
   )
 };
 
