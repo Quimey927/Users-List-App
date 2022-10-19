@@ -1,0 +1,14 @@
+.button {
+  padding: 0.15rem 0.75rem;
+  background-color: rgb(116, 11, 116);
+  color: white;
+  font-weight: bold;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+}
+
+.button:hover {
+  background-color: rgb(155, 14, 155);
+}
