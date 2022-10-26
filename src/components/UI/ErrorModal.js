@@ -48,7 +48,7 @@ const ErrorModal = (props) => {
         document.getElementById('overlay-root')
       )}
     </Fragment>
-  )
+  );
 };
 
 export default ErrorModal;
